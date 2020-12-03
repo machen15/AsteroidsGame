@@ -1,4 +1,5 @@
-Spaceship bob = new Spaceship();
+Spaceship bob = new Spaceship(); //variable declarations
+Asteroid rock = new Asteroid();
 Star[] starryNight = new Star[200];
 public void setup() 
 {
@@ -17,6 +18,8 @@ public void draw()
   }
  bob.show();
  bob.move();
+ rock.show();
+ rock.move();
 }
 public void keyPressed()
 {
@@ -29,4 +32,3 @@ public void keyPressed()
   else if(key == 'w') //new location, zero speed
     bob.hyperspace();
 }
-
