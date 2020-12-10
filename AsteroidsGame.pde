@@ -43,6 +43,4 @@ public void keyPressed()
     bob.accelerate(0.3);
   else if(key == 'h') //new location, zero speed
     bob.hyperspace();
-  else if(key == ' ') //spacebar = shoot
-    shots.add(new Bullet(bob)); //bob is the spaceship
 }
