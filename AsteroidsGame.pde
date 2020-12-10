@@ -1,4 +1,4 @@
-Spaceship bob = new Spaceship(); //variable declarations
+Spaceship bob = new Spaceship(); 
 Star[] starryNight = new Star[500];
 ArrayList <Asteroid> rock = new ArrayList <Asteroid>();
 public void setup() 
@@ -33,14 +33,14 @@ public void draw()
 }
 public void keyPressed()
 {
-  if(key == 'a') //counterclockwise
+  if(key == 'a') 
     bob.turn(-15);
-  else if(key == 'd') //clockwise
+  else if(key == 'd') 
     bob.turn(15);
-  else if(key == 's') //accelerate to the left
+  else if(key == 's')
     bob.accelerate(-0.3);
-  else if(key == 'w') //accelerate to the right
+  else if(key == 'w') 
     bob.accelerate(0.3);
-  else if(key == 'h') //new location, zero speed
+  else if(key == 'h')
     bob.hyperspace();
 }
