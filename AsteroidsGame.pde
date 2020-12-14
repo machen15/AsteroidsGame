@@ -1,4 +1,4 @@
-Spaceship bob = new Spaceship(); //variable declarations
+Spaceship bob = new Spaceship(); 
 Star[] starryNight = new Star[500];
 ArrayList <Asteroid> rock = new ArrayList <Asteroid>();
 ArrayList <Bullet> shots = new ArrayList <Bullet>();
@@ -35,14 +35,14 @@ public void draw()
  {
  shots.get(i).move();
  shots.get(i).show();
-   for(int j = 0; j < rock.size(); j++) // use different variables 
+   for(int j = 0; j < rock.size(); j++) 
    {
  float d = dist((float)rock.get(j).getX(), (float)rock.get(j).getY(), (float)shots.get(i).getX(),(float)shots.get(i).getY());
  if (d < 30) 
     {
      rock.remove(j);
      shots.remove(i);
-     break; // prevent out of bounds
+     break; 
     }
    }
  }
