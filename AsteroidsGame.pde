@@ -1,6 +1,7 @@
-Spaceship bob = new Spaceship(); 
+Spaceship bob = new Spaceship(); //variable declarations
 Star[] starryNight = new Star[500];
 ArrayList <Asteroid> rock = new ArrayList <Asteroid>();
+ArrayList <Bullet> shots = new ArrayList <Bullet>();
 public void setup() 
 {
   size(800,800);
@@ -30,17 +31,36 @@ public void draw()
  if (d < 30)
   rock.remove(i);
  }
+ for(int i = 0; i < shots.size(); i++)
+ {
+ shots.get(i).move();
+ shots.get(i).show();
+   for(int j = 0; j < rock.size(); j++) // use different variables 
+   {
+ float d = dist((float)rock.get(j).getX(), (float)rock.get(j).getY(), (float)shots.get(i).getX(),(float)shots.get(i).getY());
+ if (d < 30) 
+    {
+     rock.remove(j);
+     shots.remove(i);
+     break; // prevent out of bounds
+    }
+   }
+ }
 }
 public void keyPressed()
 {
-  if(key == 'a') 
+  if(key == 'a') //counterclockwise
     bob.turn(-15);
-  else if(key == 'd') 
+  else if(key == 'd') //clockwise
     bob.turn(15);
-  else if(key == 's')
+  else if(key == 's') //accelerate to the left
     bob.accelerate(-0.3);
-  else if(key == 'w') 
+  else if(key == 'w') //accelerate to the right
     bob.accelerate(0.3);
-  else if(key == 'h')
+  else if(key == 'h') //new location, zero speed
     bob.hyperspace();
+  else if(key == ' ') //spacebar = shoot
+    shots.add(new Bullet(bob)); //bob is the spaceship
+  else if(key == '1') // new asteroids
+    rock.add(new Asteroid()); 
 }
